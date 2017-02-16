@@ -31,4 +31,3 @@ class UserRegister(Resource):
 
 
 
-tcp.stream==1 || tcp.stream==2 || tcp.stream==3 || tcp.stream==4 || tcp.stream==5 || tcp.stream==6 || tcp.stream==7 || tcp.stream==8 
