@@ -14,18 +14,13 @@ class ItemModel(db.Model):
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
     store = db.relationship('StoreModel')
 
-    def __init__(self, name, price, store_id):
+    def __init__(self, name, price, store_id, expire, ip_cidr):
         self.name = name
         self.price = price
         self.store_id = store_id
-        try:
-            self.expire = expire
-        except:
-            print ('this is ' + expire)
-        try:
-            self.ip_cidr = ip_cidr
-        except:
-            print ('this is ' + ip_cidr)
+        self.expire = expire
+        self.ip_cidr = ip_cidr
+
     def json(self):
         return {
         'name': self.name,
