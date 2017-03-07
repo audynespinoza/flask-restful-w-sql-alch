@@ -21,11 +21,11 @@ class ItemModel(db.Model):
         try:
             self.expire = expire
         except:
-            print 'this is ' + expire
+            print ('this is ' + expire)
         try:
             self.ip_cidr = ip_cidr
         except:
-            print 'this is ' + ip_cidr
+            print ('this is ' + ip_cidr)
     def json(self):
         return {
         'name': self.name,
