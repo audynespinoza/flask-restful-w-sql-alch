@@ -1,5 +1,5 @@
 from db import db
-from sqlalchemy.dialects.postgresql
+from sqlalchemy.dialects import postgresql
 
 class ItemModel(db.Model):
     __tablename__ = 'items'
