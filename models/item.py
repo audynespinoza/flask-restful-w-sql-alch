@@ -21,6 +21,7 @@ class ItemModel(db.Model):
         return {
         'name': self.name,
         'price': self.price,
+        'store_id':self.store_id,
         'expire':self.expire
         }
 
