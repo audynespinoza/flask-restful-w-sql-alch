@@ -14,6 +14,11 @@ class Item(Resource):
         required=True,
         help="Every item needs a store id."
     )
+    parser.add_argument('expire',
+        type=str,
+        required=True,
+        help="Every item needs an expiration."
+    )
 
     @jwt_required()
     def get(self, name):
