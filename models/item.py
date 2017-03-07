@@ -18,7 +18,10 @@ class ItemModel(db.Model):
         self.name = name
         self.price = price
         self.store_id = store_id
-        self.expire = expire
+        try:
+            self.expire = expire
+        except:
+            print 'this is ' + expire
         try:
             self.ip_cidr = ip_cidr
         except:
