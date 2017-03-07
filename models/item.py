@@ -1,4 +1,5 @@
 from db import db
+from sqlalchemy.dialects.postgresql
 
 class ItemModel(db.Model):
     __tablename__ = 'items'
@@ -6,7 +7,9 @@ class ItemModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     price = db.Column(db.Float(precision=2))
-    expire = db.Column(db.String(80))
+    expire = db.Column(db.String(80)),
+    ip_cidr = db.Column(postgresql.CIDR, index=True, nullable=True)
+
 
     store_id = db.Column(db.Integer, db.ForeignKey('stores.id'))
     store = db.relationship('StoreModel')
@@ -16,13 +19,15 @@ class ItemModel(db.Model):
         self.price = price
         self.store_id = store_id
         self.expire = expire
+        self.ip_cidr = ip_cidr
 
     def json(self):
         return {
         'name': self.name,
         'price': self.price,
         'store_id':self.store_id,
-        'expire':self.expire
+        'expire':self.expire,
+        'ip_cidr':self.ip_cidr
         }
 
     @classmethod

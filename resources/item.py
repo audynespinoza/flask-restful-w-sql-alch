@@ -19,7 +19,16 @@ class Item(Resource):
         required=True,
         help="Every item needs an expiration."
     )
-
+    parser.add_argument('ip_subnet',
+        type=str,
+        required=True,
+        help="Every item needs an expiration."
+    )
+    parser.add_argument('ip_mask',
+        type=str,
+        required=True,
+        help="Every item needs an expiration."
+    )
     @jwt_required()
     def get(self, name):
         item = ItemModel.find_by_name(name)
