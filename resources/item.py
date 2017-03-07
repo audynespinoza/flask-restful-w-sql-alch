@@ -62,6 +62,9 @@ class Item(Resource):
             item = ItemModel(name, **data)
         else:
             item.price = data['price']
+            item.store_id = data['store_id']
+            item.expire = data['expire']
+            item.ip_cidr = data['ip_cidr']
 
         item.save_to_db()
 

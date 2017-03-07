@@ -19,8 +19,10 @@ class ItemModel(db.Model):
         self.price = price
         self.store_id = store_id
         self.expire = expire
-        self.ip_cidr = ip_cidr
-
+        try:
+            self.ip_cidr = ip_cidr
+        except:
+            print 'this is ' + ip_cidr
     def json(self):
         return {
         'name': self.name,
